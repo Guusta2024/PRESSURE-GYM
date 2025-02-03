@@ -14,7 +14,6 @@ function validarCPF(cpf: string): boolean {
     return cpfLimpo.length === 11; // Validação básica
 }
 
-// Função para mostrar mensagens
 function mostrarMensagem(mensagem: string, tipo: "sucesso" | "erro"): void {
     alert(`${tipo.toUpperCase()}: ${mensagem}`);
 }
