@@ -1,15 +1,14 @@
-"use strict";
 var _a;
-(_a = document.getElementById("loginForm")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", (event) => {
+(_a = document.getElementById("loginForm")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", function (event) {
     event.preventDefault();
-    const loginInput = document.getElementById("username");
-    const senhaInput = document.getElementById("password");
-    const login = loginInput.value.trim();
-    const senha = senhaInput.value.trim();
+    var loginInput = document.getElementById("username");
+    var senhaInput = document.getElementById("password");
+    var login = loginInput.value.trim();
+    var senha = senhaInput.value.trim();
     function mostrarMensagem(mensagem) {
         alert(mensagem);
     }
-    const academias = JSON.parse(localStorage.getItem("academias") || "{}");
+    var academias = JSON.parse(localStorage.getItem("academias") || "{}");
     console.log("Dados do LocalStorage (academias):", academias);
     if (!academias || !academias.login || !academias.senha) {
         mostrarMensagem("Nenhuma academia cadastrada. Cadastre-se primeiro.");
@@ -21,7 +20,7 @@ var _a;
         window.location.href = "acesso-adm.html";
         return;
     }
-    const aluno = JSON.parse(localStorage.getItem("Aluno") || "{}");
+    var aluno = JSON.parse(localStorage.getItem("Aluno") || "{}");
     console.log("Dados do LocalStorage (Aluno):", aluno);
     if (!aluno || !aluno.login || !aluno.senha) {
         mostrarMensagem("Nenhum aluno cadastrado em nosso sistema. Cadastre-se primeiro.");

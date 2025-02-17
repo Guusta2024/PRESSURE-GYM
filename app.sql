@@ -1,0 +1,1 @@
+USE `iron_pressure`; SHOW TABLES; SELECT * FROM instrutores
