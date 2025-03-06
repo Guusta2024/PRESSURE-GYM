@@ -43,13 +43,20 @@ exports.buscarAlunoPorLogin = buscarAlunoPorLogin;
 var database_1 = __importDefault(require("./database"));
 function buscarAlunoPorLogin(login) {
     return __awaiter(this, void 0, void 0, function () {
-        var rows;
+        var rows, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, database_1.default.query('SELECT * FROM alunos WHERE login = ?', [login])];
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, database_1.default.query('SELECT * FROM alunos WHERE login = ?', [login])];
                 case 1:
                     rows = (_a.sent())[0];
                     return [2 /*return*/, rows]; // Retorna os dados do aluno
+                case 2:
+                    error_1 = _a.sent();
+                    console.error('Erro ao buscar aluno por login:', error_1);
+                    throw error_1; // Opcional: você pode tratar o erro de forma mais específica
+                case 3: return [2 /*return*/];
             }
         });
     });

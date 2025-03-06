@@ -13,4 +13,16 @@ var pool = promise_1.default.createPool({
     connectionLimit: 10,
     queueLimit: 0
 });
+
+// Testa a conexão com o banco de dados utilizando tratamento de exceções
+(async function testConnection() {
+    try {
+        const connection = await pool.getConnection();
+        console.log('Conexão com o banco de dados estabelecida com sucesso.');
+        connection.release();
+    } catch (error) {
+        console.error('Erro ao conectar com o banco de dados:', error);
+    }
+})();
+
 exports.default = pool;
