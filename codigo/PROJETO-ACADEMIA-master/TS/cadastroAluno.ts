@@ -1,15 +1,3 @@
-// Interface para representar um aluno
-interface Aluno {
-    nome: string;
-    idade: string;
-    cpf: string;
-    login: string;
-    senha: string;
-    academia: string;
-    altura: number;
-    peso: number;
-}
-
 // Função para validar o CPF
 function validarCPF(cpf: string): boolean {
     const cpfLimpo = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
