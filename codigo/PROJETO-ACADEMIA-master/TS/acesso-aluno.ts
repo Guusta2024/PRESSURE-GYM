@@ -1,6 +1,5 @@
 window.onload = () => {
-    const aluno = JSON.parse(localStorage.getItem("Aluno") || "{}");
-
+h
     const nomeAlunoElement = document.getElementById("nomeAluno") as HTMLSpanElement;
 
     if (aluno && aluno.nome) {
