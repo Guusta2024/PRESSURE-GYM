@@ -1,5 +1,5 @@
 window.onload = function () {
-    var aluno = JSON.parse(localStorage.getItem("Aluno") || "{}");
+    h;
     var nomeAlunoElement = document.getElementById("nomeAluno");
     if (aluno && aluno.nome) {
         nomeAlunoElement.textContent = aluno.nome;

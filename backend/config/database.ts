@@ -1,9 +1,24 @@
-// backend/config/database.ts
-import sequelize from '../config/database'; // Corrigido para o caminho correto
+import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
 
-const sequelize = new Sequelize('iron pressure', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
-});
+dotenv.config();
 
-export default sequelize; // Certifique-se de que está exportando como default
+export const sequelize = new Sequelize(
+  process.env.DB_NAME as string,
+  process.env.DB_USER as string,
+  process.env.DB_PASS as string,
+  {
+    host: process.env.DB_HOST,
+    dialect: 'mysql',
+    logging: false,
+  }
+);
+
+export const conectarBD = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('🔌 Conectado ao banco de dados!');
+  } catch (error) {
+    console.error('❌ Erro ao conectar ao banco:', error);
+  }
+};

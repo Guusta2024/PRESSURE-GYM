@@ -1,57 +1,28 @@
-import { Model, DataTypes } from 'sequelize';
-import { sequelize } from './config/database';
+import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../config/database';
 
-class Aluno extends Model {
+class Usuario extends Model {
   public id!: number;
-  public nome!: string; // Mude 'name' para 'nome' se for esse o nome da coluna
-  public nascimento!: Date;
-  public sexo!: string;
-  public peso!: number;
-  public altura!: number;
+  public nome!: string;
+  public nascimento!: string;
   public usuario!: string;
   public senha!: string;
 }
 
-Aluno.init(
+Usuario.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    nome: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    nascimento: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    sexo: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    peso: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    altura: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    usuario: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    senha: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    nome: { type: DataTypes.STRING, allowNull: false },
+    email: { type: DataTypes.STRING, allowNull: false, unique: true },
+    usuario: { type: DataTypes.STRING, allowNull: false },
+    senha: { type: DataTypes.STRING, allowNull: false },
   },
   {
     sequelize,
-    tableName: 'alunos',
+    modelName: 'Usuario',
+    tableName: 'usuarios',
+    timestamps: true,
   }
 );
 
-export default Aluno;
+export default Usuario;
