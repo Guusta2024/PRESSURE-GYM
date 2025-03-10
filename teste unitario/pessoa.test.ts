@@ -1,4 +1,4 @@
-import { Pessoa } from './pessoa'; 
+import { Pessoa } from '../codigo/PROJETO-ACADEMIA-master/TS/pessoa'; 
 
 describe('Classe Pessoa', () => {
   let pessoa1: Pessoa;

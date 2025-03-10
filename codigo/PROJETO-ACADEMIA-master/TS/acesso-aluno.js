@@ -1,6 +1,6 @@
-window.onload = function () {
+window.onload = () => {
     h;
-    var nomeAlunoElement = document.getElementById("nomeAluno");
+    const nomeAlunoElement = document.getElementById("nomeAluno");
     if (aluno && aluno.nome) {
         nomeAlunoElement.textContent = aluno.nome;
     }

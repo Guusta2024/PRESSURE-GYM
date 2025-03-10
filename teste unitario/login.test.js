@@ -1,12 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var globals_1 = require("@jest/globals");
+import { jest } from '@jest/globals';
 // Função que será testada
-var loginFormSubmitHandler = function (login, senha, localStorageMock) {
+const loginFormSubmitHandler = (login, senha, localStorageMock) => {
     function mostrarMensagem(mensagem) {
         console.log(mensagem); // Alterado para console.log para testes
     }
-    var academias = JSON.parse(localStorageMock.getItem("academias") || "{}");
+    const academias = JSON.parse(localStorageMock.getItem("academias") || "{}");
     console.log("Dados do LocalStorage (academias):", academias);
     if (!academias || !academias.login || !academias.senha) {
         mostrarMensagem("Nenhuma academia cadastrada. Cadastre-se primeiro.");
@@ -17,7 +15,7 @@ var loginFormSubmitHandler = function (login, senha, localStorageMock) {
         console.log("Login bem-sucedido. Redirecionando para página de administração...");
         return "acesso-adm.html"; // Em vez de window.location.href
     }
-    var aluno = JSON.parse(localStorageMock.getItem("Aluno") || "{}");
+    const aluno = JSON.parse(localStorageMock.getItem("Aluno") || "{}");
     console.log("Dados do LocalStorage (Aluno):", aluno);
     if (!aluno || !aluno.login || !aluno.senha) {
         mostrarMensagem("Nenhum aluno cadastrado em nosso sistema. Cadastre-se primeiro.");
@@ -33,33 +31,33 @@ var loginFormSubmitHandler = function (login, senha, localStorageMock) {
     }
 };
 // Mock de localStorage para os testes
-var localStorageMock = {
-    getItem: globals_1.jest.fn().mockImplementation(function (key) {
-        var data = {
+const localStorageMock = {
+    getItem: jest.fn().mockImplementation((key) => {
+        const data = {
             "academias": JSON.stringify({ login: "admin", senha: "12345" }),
             "Aluno": JSON.stringify({ login: "student", senha: "54321" })
         };
         return data[key] || null;
     }),
-    setItem: globals_1.jest.fn()
+    setItem: jest.fn()
 };
 // Testes usando Jest
-describe('loginFormSubmitHandler', function () {
-    it('should redirect to "acesso-adm.html" for admin login', function () {
-        var result = loginFormSubmitHandler("admin", "12345", localStorageMock);
+describe('loginFormSubmitHandler', () => {
+    it('should redirect to "acesso-adm.html" for admin login', () => {
+        const result = loginFormSubmitHandler("admin", "12345", localStorageMock);
         expect(result).toBe("acesso-adm.html");
     });
-    it('should redirect to "acesso-aluno.html" for student login', function () {
-        var result = loginFormSubmitHandler("student", "54321", localStorageMock);
+    it('should redirect to "acesso-aluno.html" for student login', () => {
+        const result = loginFormSubmitHandler("student", "54321", localStorageMock);
         expect(result).toBe("acesso-aluno.html");
     });
-    it('should display message for incorrect login or password', function () {
-        var result = loginFormSubmitHandler("admin", "wrongpassword", localStorageMock);
+    it('should display message for incorrect login or password', () => {
+        const result = loginFormSubmitHandler("admin", "wrongpassword", localStorageMock);
         expect(result).toBeUndefined(); // Não há redirecionamento para senha errada
     });
-    it('should show message if no academy is registered', function () {
+    it('should show message if no academy is registered', () => {
         localStorageMock.getItem.mockReturnValueOnce(null); // Simulando que não há academias no localStorage
-        var result = loginFormSubmitHandler("admin", "12345", localStorageMock);
+        const result = loginFormSubmitHandler("admin", "12345", localStorageMock);
         expect(result).toBeUndefined(); // Nenhuma página será redirecionada
     });
 });

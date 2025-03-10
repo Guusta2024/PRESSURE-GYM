@@ -1,4 +1,4 @@
-import { salvarAluno } from './novos-saves';
+import { salvarAluno } from '../codigo/PROJETO-ACADEMIA-master/TS/novos-saves';
 import { JSDOM } from 'jsdom';
 
 describe('Funções de Cadastro', () => {

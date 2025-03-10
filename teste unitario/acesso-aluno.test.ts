@@ -1,4 +1,3 @@
-    
 // app.test.ts
 import { JSDOM } from 'jsdom';
 

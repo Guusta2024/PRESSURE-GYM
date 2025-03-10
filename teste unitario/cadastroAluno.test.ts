@@ -1,5 +1,4 @@
-import { Pessoa } from "./cadastroAluno";
-import { AlunoClass, validarCPF } from "./cadastroAluno";
+import { Pessoa, AlunoClass, validarCPF } from "../codigo/PROJETO-ACADEMIA-master/TS/cadastroAluno";
 
 // Mock global do document sem usar jsdom
 global.document = {

@@ -1,4 +1,5 @@
-class Aluno extends Pessoa {
+import {Pessoa} from './pessoa'
+export class Aluno extends Pessoa {
   CPF: string;
   altura: string;
   peso: string;

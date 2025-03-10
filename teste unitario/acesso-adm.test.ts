@@ -1,4 +1,4 @@
-import { excluirAluno, excluirInstrutor, excluirPlanoTreino, excluirExercicio, listarAlunos, listarInstrutores, listarPlanosTreino, listarExercicios } from './acesso-adm';
+import { excluirAluno, excluirInstrutor, excluirPlanoTreino, excluirExercicio, listarAlunos, listarInstrutores, listarPlanosTreino, listarExercicios } from '../codigo/PROJETO-ACADEMIA-master/TS/acesso-adm';
 
 // Mock do localStorage com todas as propriedades da interface Storage
 beforeEach(() => {
@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 // Mock das funções de acesso-adm com tipagem explicita para o Jest Mock
-jest.mock('./acesso-adm', () => ({
+jest.mock('../codigo/PROJETO-ACADEMIA-master/TS/acesso-adm', () => ({
   excluirAluno: jest.fn(),
   excluirInstrutor: jest.fn(),
   excluirPlanoTreino: jest.fn(),

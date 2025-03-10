@@ -1,5 +1,6 @@
-import Aluno from './aluno'; // Importa a classe Aluno
-import Pessoa from './pessoa'; // Importa a classe Pessoa
+import { Aluno } from '../codigo/PROJETO-ACADEMIA-master/TS/aluno';
+//import { Pessoa } from '../codigo/PROJETO-ACADEMIA-master/TS/pessoa';
+
 
 describe('Aluno', () => {
     let aluno: Aluno;

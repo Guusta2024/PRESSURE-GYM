@@ -13,28 +13,28 @@
     }
 });
 function excluirAluno(index) {
-    var alunos = JSON.parse(localStorage.getItem("alunos") || "[]");
+    const alunos = JSON.parse(localStorage.getItem("alunos") || "[]");
     alunos.splice(index, 1);
     localStorage.setItem("alunos", JSON.stringify(alunos));
     listarAlunos();
     alert("Aluno excluído com sucesso!");
 }
 function excluirInstrutor(index) {
-    var instrutores = JSON.parse(localStorage.getItem("instrutores") || "[]");
+    const instrutores = JSON.parse(localStorage.getItem("instrutores") || "[]");
     instrutores.splice(index, 1);
     localStorage.setItem("instrutores", JSON.stringify(instrutores));
     listarInstrutores();
     alert("Instrutor excluído com sucesso!");
 }
 function excluirPlanoTreino(index) {
-    var planos = JSON.parse(localStorage.getItem("planosTreino") || "[]");
+    const planos = JSON.parse(localStorage.getItem("planosTreino") || "[]");
     planos.splice(index, 1);
     localStorage.setItem("planosTreino", JSON.stringify(planos));
     listarPlanosTreino();
     alert("Plano de treino excluído com sucesso!");
 }
 function excluirExercicio(index) {
-    var exercicios = JSON.parse(localStorage.getItem("exercicios") || "[]");
+    const exercicios = JSON.parse(localStorage.getItem("exercicios") || "[]");
     exercicios.splice(index, 1);
     localStorage.setItem("exercicios", JSON.stringify(exercicios));
     listarExercicios();
@@ -42,91 +42,91 @@ function excluirExercicio(index) {
 }
 function listarAlunos() {
     var _a;
-    var alunos = JSON.parse(localStorage.getItem("alunos") || "[]");
-    var tabela = (_a = document.getElementById("tabelaAlunos")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
+    const alunos = JSON.parse(localStorage.getItem("alunos") || "[]");
+    const tabela = (_a = document.getElementById("tabelaAlunos")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
     if (tabela) {
         tabela.innerHTML = "";
-        alunos.forEach(function (aluno, index) {
-            var row = tabela.insertRow();
+        alunos.forEach((aluno, index) => {
+            const row = tabela.insertRow();
             row.insertCell(0).textContent = aluno.nome;
             row.insertCell(1).textContent = aluno.idade.toString();
             row.insertCell(2).textContent = aluno.altura.toString();
             row.insertCell(3).textContent = aluno.peso.toString();
             row.insertCell(4).textContent = aluno.imc.toString();
             row.insertCell(5).textContent = aluno.objetivo;
-            var deleteCell = row.insertCell(6);
-            var deleteButton = document.createElement("button");
+            const deleteCell = row.insertCell(6);
+            const deleteButton = document.createElement("button");
             deleteButton.textContent = "Excluir";
             deleteButton.className = "btn-delete";
-            deleteButton.onclick = function () { return excluirAluno(index); };
+            deleteButton.onclick = () => excluirAluno(index);
             deleteCell.appendChild(deleteButton);
         });
     }
 }
 function listarInstrutores() {
     var _a;
-    var instrutores = JSON.parse(localStorage.getItem("instrutores") || "[]");
-    var tabela = (_a = document.getElementById("tabelaInstrutores")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
+    const instrutores = JSON.parse(localStorage.getItem("instrutores") || "[]");
+    const tabela = (_a = document.getElementById("tabelaInstrutores")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
     if (tabela) {
         tabela.innerHTML = "";
-        instrutores.forEach(function (instrutor, index) {
-            var row = tabela.insertRow();
+        instrutores.forEach((instrutor, index) => {
+            const row = tabela.insertRow();
             row.insertCell(0).textContent = instrutor.nome;
             row.insertCell(1).textContent = instrutor.idade.toString();
             row.insertCell(2).textContent = instrutor.formacao;
             row.insertCell(3).textContent = instrutor.email;
             row.insertCell(4).textContent = instrutor.contato;
-            var deleteCell = row.insertCell(5);
-            var deleteButton = document.createElement("button");
+            const deleteCell = row.insertCell(5);
+            const deleteButton = document.createElement("button");
             deleteButton.textContent = "Excluir";
             deleteButton.className = "btn-delete";
-            deleteButton.onclick = function () { return excluirInstrutor(index); };
+            deleteButton.onclick = () => excluirInstrutor(index);
             deleteCell.appendChild(deleteButton);
         });
     }
 }
 function listarPlanosTreino() {
     var _a;
-    var planos = JSON.parse(localStorage.getItem("planosTreino") || "[]");
-    var tabela = (_a = document.getElementById("tabelaPlanosTreino")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
+    const planos = JSON.parse(localStorage.getItem("planosTreino") || "[]");
+    const tabela = (_a = document.getElementById("tabelaPlanosTreino")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
     if (tabela) {
         tabela.innerHTML = "";
-        planos.forEach(function (plano, index) {
-            var row = tabela.insertRow();
+        planos.forEach((plano, index) => {
+            const row = tabela.insertRow();
             row.insertCell(0).textContent = plano.nome;
             row.insertCell(1).textContent = plano.descricao;
             row.insertCell(2).textContent = plano.duracao.toString();
-            var deleteCell = row.insertCell(3);
-            var deleteButton = document.createElement("button");
+            const deleteCell = row.insertCell(3);
+            const deleteButton = document.createElement("button");
             deleteButton.textContent = "Excluir";
             deleteButton.className = "btn-delete";
-            deleteButton.onclick = function () { return excluirPlanoTreino(index); };
+            deleteButton.onclick = () => excluirPlanoTreino(index);
             deleteCell.appendChild(deleteButton);
         });
     }
 }
 function listarExercicios() {
     var _a;
-    var exercicios = JSON.parse(localStorage.getItem("exercicios") || "[]");
-    var tabela = (_a = document.getElementById("tabelaExercicios")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
+    const exercicios = JSON.parse(localStorage.getItem("exercicios") || "[]");
+    const tabela = (_a = document.getElementById("tabelaExercicios")) === null || _a === void 0 ? void 0 : _a.querySelector("tbody");
     if (tabela) {
         tabela.innerHTML = "";
-        exercicios.forEach(function (exercicio, index) {
-            var row = tabela.insertRow();
+        exercicios.forEach((exercicio, index) => {
+            const row = tabela.insertRow();
             row.insertCell(0).textContent = exercicio.nome;
             row.insertCell(1).textContent = exercicio.grupoMuscular;
             row.insertCell(2).textContent = exercicio.repeticoes.toString();
             row.insertCell(3).textContent = exercicio.carga.toString();
-            var deleteCell = row.insertCell(4);
-            var deleteButton = document.createElement("button");
+            const deleteCell = row.insertCell(4);
+            const deleteButton = document.createElement("button");
             deleteButton.textContent = "Excluir";
             deleteButton.className = "btn-delete";
-            deleteButton.onclick = function () { return excluirExercicio(index); };
+            deleteButton.onclick = () => excluirExercicio(index);
             deleteCell.appendChild(deleteButton);
         });
     }
 }
-window.onload = function () {
+window.onload = () => {
     listarAlunos();
     listarInstrutores();
     listarPlanosTreino();

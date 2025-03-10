@@ -1,26 +1,21 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AlunoController = void 0;
-var AlunoController = /** @class */ (function () {
-    function AlunoController() {
+export class AlunoController {
+    static getUsers(req, res, next) {
+        try {
+            return res.json({ message: "Listando Alunos!" });
+        }
+        catch (error) {
+            console.log({ "erro ao listar alunos": error });
+            return next(error);
+        }
     }
-    return AlunoController;
-}());
-exports.AlunoController = AlunoController;
-try {
-    getUsers(req, Request, res, Response);
-    {
-        return res.json({ message: "Listando Alunos!" });
+    static createUser(req, res, next) {
+        try {
+            const { id, name, nascimento, sexo, peso, altura, usuario, senha } = req.body;
+            return res.status(201).json({ message: `Aluno ${name} cadastrado com sucesso!` });
+        }
+        catch (error) {
+            console.log({ "erro ao cadastrar aluno": error });
+            return next(error);
+        }
     }
-    createUser(req, Request, res, Response);
-    {
-        var _a = req.body, id = _a.id, name_1 = _a.name, nascimento = _a.nascimento, sexo = _a.sexo, peso = _a.peso, altura = _a.altura, usuario = _a.usuario, senha = _a.senha;
-        return res.status(201).json({ message: "Aluno ".concat(name_1, " cadastrado com sucesso!") });
-    }
-}
-finally {
-}
-try { }
-catch (error) {
-    console.log({ "erro ao cadastrar": error });
 }

@@ -1,6 +1,5 @@
-
 // Exercicio.test.ts
-import { Exercicio } from './exercícios';  // Importando a classe Exercicio
+import { Exercicio } from '../codigo/PROJETO-ACADEMIA-master/TS/exercícios';  // Importando a classe Exercicio
 
 describe('Exercicio', () => {
   

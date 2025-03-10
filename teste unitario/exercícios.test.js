@@ -1,11 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // Exercicio.test.ts
-var exerc_cios_1 = require("./exerc\u00EDcios"); // Importando a classe Exercicio
-describe('Exercicio', function () {
+import { Exercicio } from '../codigo/PROJETO-ACADEMIA-master/TS/exercícios'; // Importando a classe Exercicio
+describe('Exercicio', () => {
     // Teste para exercício do tipo Cardio
-    test('Deve criar um exercício de Cardio corretamente', function () {
-        var corrida = new exerc_cios_1.Exercicio("Corrida", "Cardio", 30, undefined, undefined, "Corrida na esteira");
+    test('Deve criar um exercício de Cardio corretamente', () => {
+        const corrida = new Exercicio("Corrida", "Cardio", 30, undefined, undefined, "Corrida na esteira");
         expect(corrida.nome).toBe("Corrida");
         expect(corrida.tipo).toBe("Cardio");
         expect(corrida.duracao).toBe(30);
@@ -14,8 +12,8 @@ describe('Exercicio', function () {
         expect(corrida.descricao).toBe("Corrida na esteira");
     });
     // Teste para exercício do tipo Musculação
-    test('Deve criar um exercício de Musculação corretamente', function () {
-        var supino = new exerc_cios_1.Exercicio("Supino", "Musculação", undefined, 12, 4, "Exercício para peito");
+    test('Deve criar um exercício de Musculação corretamente', () => {
+        const supino = new Exercicio("Supino", "Musculação", undefined, 12, 4, "Exercício para peito");
         expect(supino.nome).toBe("Supino");
         expect(supino.tipo).toBe("Musculação");
         expect(supino.duracao).toBeUndefined();
@@ -24,8 +22,8 @@ describe('Exercicio', function () {
         expect(supino.descricao).toBe("Exercício para peito");
     });
     // Teste para o método exibirInformacoes()
-    test('Deve exibir as informações corretamente', function () {
-        var corrida = new exerc_cios_1.Exercicio("Corrida", "Cardio", 30, undefined, undefined, "Corrida na esteira");
+    test('Deve exibir as informações corretamente', () => {
+        const corrida = new Exercicio("Corrida", "Cardio", 30, undefined, undefined, "Corrida na esteira");
         // Mock do console.log
         console.log = jest.fn();
         corrida.exibirInformacoes();
@@ -35,8 +33,8 @@ describe('Exercicio', function () {
         expect(console.log).toHaveBeenCalledWith('Descrição: Corrida na esteira');
     });
     // Teste quando a descrição não é fornecida
-    test('Não deve exibir a descrição se não for fornecida', function () {
-        var corrida = new exerc_cios_1.Exercicio("Corrida", "Cardio", 30);
+    test('Não deve exibir a descrição se não for fornecida', () => {
+        const corrida = new Exercicio("Corrida", "Cardio", 30);
         // Mock do console.log
         console.log = jest.fn();
         corrida.exibirInformacoes();

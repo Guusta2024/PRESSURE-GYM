@@ -1,16 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var aluno_1 = __importDefault(require("./aluno")); // Importa a classe Aluno
-describe('Aluno', function () {
-    var aluno;
-    beforeEach(function () {
+import { Aluno } from '../codigo/PROJETO-ACADEMIA-master/TS/aluno';
+//import { Pessoa } from '../codigo/PROJETO-ACADEMIA-master/TS/pessoa';
+describe('Aluno', () => {
+    let aluno;
+    beforeEach(() => {
         // Inicializa uma nova instância da classe Aluno antes de cada teste
-        aluno = new aluno_1.default("Jorjão", 48, "Masculino", "12387634522", "178", "78", "JJ", "JJgordo");
+        aluno = new Aluno("Jorjão", 48, "Masculino", "12387634522", "178", "78", "JJ", "JJgordo");
     });
-    test('deve criar um aluno com os dados corretos', function () {
+    test('deve criar um aluno com os dados corretos', () => {
         expect(aluno.nome).toBe("Jorjão");
         expect(aluno.idade).toBe(48);
         expect(aluno.sexo).toBe("Masculino");
@@ -20,8 +16,8 @@ describe('Aluno', function () {
         expect(aluno.usuario).toBe("JJ");
         expect(aluno.senha).toBe("JJgordo");
     });
-    test('deve exibir as informações do aluno corretamente', function () {
-        var consoleSpy = jest.spyOn(console, 'log'); // Espiona o console.log
+    test('deve exibir as informações do aluno corretamente', () => {
+        const consoleSpy = jest.spyOn(console, 'log'); // Espiona o console.log
         aluno.exibirInformacoesAluno(); // Chama o método para exibir as informações do aluno
         expect(consoleSpy).toHaveBeenCalledWith("Nome: Jorjão");
         expect(consoleSpy).toHaveBeenCalledWith("Idade: 48");
