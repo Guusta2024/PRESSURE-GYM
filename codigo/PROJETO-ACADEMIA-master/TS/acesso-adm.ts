@@ -1,50 +1,90 @@
 (function() {
 function abrirCadastroAluno(): void {
-    window.open("novos-alunos.html", "_blank", "width=600,height=700");
+    try{
+        window.open("novos-alunos.html", "_blank", "width=600,height=700");
+    } catch (error){
+        console.error("Erro ao tentar abrir o cadastro do aluno", error)
+        alert('ocorreu um erro ao tentar abrir o cadastro do aluno. tente novamente!')
+    }
 }
 
 function abrirCadastroInstrutor(): void {
-    window.open("novos-instrutores.html", "_blank", "width=600,height=700");
+    try{
+        window.open("novos-instrutores.html", "_blank", "width=600,height=700");
+    } catch (error) {
+        console.error('Erro aotentar abrir o cadastro do intrutor', error)
+        alert('ocorreu um erro ao abrir o cadastro do intrutor. tente novamente!')
+    }
 }
 
 function abrirCadastroPlanoTreino(): void {
-    window.open("novos-planosTreinos.html", "_blank", "width=600,height=700");
+    try{
+        window.open("novos-planosTreinos.html", "_blank", "width=600,height=700");
+    }catch (error){
+        console.error('Erro ao abrir cadastro do plano de treino', error)
+        alert('Ocorreu um erro ao abrir o cadastro do plano de treino')
+    }
 }
 
 function abrirCadastroExercicio(): void {
-    window.open("novos-exercicios.html", "_blank", "width=600,height=700");
+    try{
+        window.open("novos-exercicios.html", "_blank", "width=600,height=700");
+    } catch(error){
+        console.error("erro ao tentar abrir cadastro do execício", error)
+        alert('Ocorreu um erro ao abrir o cadastro do execício')
+    }
 }
 })
 function excluirAluno(index: number): void {
-    const alunos = JSON.parse(localStorage.getItem("alunos") || "[]");
-    alunos.splice(index, 1);
-    localStorage.setItem("alunos", JSON.stringify(alunos));
-    listarAlunos();
-    alert("Aluno excluído com sucesso!");
+    try{
+        const alunos = JSON.parse(localStorage.getItem("alunos") || "[]");
+        alunos.splice(index, 1);
+        localStorage.setItem("alunos", JSON.stringify(alunos));
+        listarAlunos();
+        alert("Aluno excluído com sucesso!");
+    } catch (error){
+        console.error("erro ao excluir aluno", error)
+        alert("ocorreu um erro ao excluir aluno. Tente novamente!")
+    }
 }
 
 function excluirInstrutor(index: number): void {
-    const instrutores = JSON.parse(localStorage.getItem("instrutores") || "[]");
-    instrutores.splice(index, 1);
-    localStorage.setItem("instrutores", JSON.stringify(instrutores));
-    listarInstrutores();
-    alert("Instrutor excluído com sucesso!");
+    try{
+        const instrutores = JSON.parse(localStorage.getItem("instrutores") || "[]");
+        instrutores.splice(index, 1);
+        localStorage.setItem("instrutores", JSON.stringify(instrutores));
+        listarInstrutores();
+        alert("Instrutor excluído com sucesso!");
+    } catch (error){
+        console.error("erro ao excluir instrutor", error)
+        alert("Ocorreu um erro ao excluir instrutor. Tente novamente!")
+    }
 }
 
 function excluirPlanoTreino(index: number): void {
-    const planos = JSON.parse(localStorage.getItem("planosTreino") || "[]");
-    planos.splice(index, 1);
-    localStorage.setItem("planosTreino", JSON.stringify(planos));
-    listarPlanosTreino();
-    alert("Plano de treino excluído com sucesso!");
+    try{
+        const planos = JSON.parse(localStorage.getItem("planosTreino") || "[]");
+        planos.splice(index, 1);
+        localStorage.setItem("planosTreino", JSON.stringify(planos));
+        listarPlanosTreino();
+        alert("Plano de treino excluído com sucesso!");
+    } catch (error){
+        console.error("erro ao excluir plano de treino", error)
+        alert("Ocorreu um erro ao excluir plano de treino. Tente novamente!")
+    }
 }
 
 function excluirExercicio(index: number): void {
-    const exercicios = JSON.parse(localStorage.getItem("exercicios") || "[]");
-    exercicios.splice(index, 1);
-    localStorage.setItem("exercicios", JSON.stringify(exercicios));
-    listarExercicios();
-    alert("Exercício excluído com sucesso!");
+    try{
+        const exercicios = JSON.parse(localStorage.getItem("exercicios") || "[]");
+        exercicios.splice(index, 1);
+        localStorage.setItem("exercicios", JSON.stringify(exercicios));
+        listarExercicios();
+        alert("Exercício excluído com sucesso!");
+    } catch (error){
+        console.error("erro ao excluir execício", error)
+        alert('Ocorreu um erro ao excluir execício. Tente novamento!')
+    }
 }
 
 
@@ -73,6 +113,7 @@ function listarAlunos(): void {
 }
 
 function listarInstrutores(): void {
+    try{
     const instrutores = JSON.parse(localStorage.getItem("instrutores") || "[]");
     const tabela = document.getElementById("tabelaInstrutores")?.querySelector("tbody");
     if (tabela) {

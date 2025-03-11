@@ -102,7 +102,7 @@ class AlunoClass extends Pessoa {
 
     // Método para exibir todas as informações (da Pessoa e do Aluno)
     exibirInformacoesAluno(): void {
-        this.exibirInformacoes(); // Chama o método da classe base (Pessoa)
+        this.exibirInformacoesAluno(); // Chama o método da classe base (Pessoa)
         console.log(`CPF: ${this.cpf}`);
         console.log(`Login: ${this.login}`);
         console.log(`Senha: ${this.senha}`);

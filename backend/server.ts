@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { conectarBD } from './config/database';
-import Usuario from './models/alunoModel';
 
 dotenv.config();
 const app = express();
